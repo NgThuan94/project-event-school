@@ -1,11 +1,6 @@
 export const invitation = {
   organizer: "Ban liên lạc cựu học sinh niên khóa 1993 - 1996",
-  schoolName: "Trường THPT Số 2 Nghĩa Hành",
-  province: "Quảng Ngãi",
   eyebrow: "Giấy Mời",
-  headline: "Kỷ niệm 30 năm",
-  scriptLine: "Quay về Trường",
-  subline: "Trở về nơi ta bắt đầu",
   intro:
     "Nhân dịp kỷ niệm 30 năm ngày ra trường, Ban Liên lạc cựu học sinh niên khóa 1993 - 1996 xin trân trọng kính mời",
   recipient: "Các Bạn",
@@ -33,31 +28,32 @@ export const schedule = [
   ["10:30", "Dùng cơm thân mật và tham gia hoạt động của buổi gặp mặt"],
 ];
 
-export const gallery = [
-  {
-    label: "Giấy Mời",
-    src: "/canva-elements/invite-badge-hoai-cam.png",
-    className: "photo-card--invite",
+export const gallery = {
+  logo: "/canva-elements/gallry/logo.png",
+  school: "Trường THPT Số 2 Nghĩa Hành - Quảng Ngãi",
+  reunion: "Hội cựu học sinh niên khóa 1993 - 1996",
+  tagline: "Trở về nơi ta bắt đầu",
+  // Ảnh slide giữa (tự chạy). Thêm/bớt ảnh trong thư mục public/canva-elements/gallry/
+  slides: [
+    "/canva-elements/gallry/imag-1.jpg",
+    "/canva-elements/gallry/imag-2.jpg",
+    "/canva-elements/gallry/image-3.jpg",
+    "/canva-elements/gallry/image-4.jpg",
+  ],
+  // Câu trích — dòng highlight (đỏ, to) tách riêng
+  quote: {
+    pre: ["Thanh xuân có hạn kỳ,", "nhưng tình bạn là những"],
+    highlight: ["Tháng năm", "rực rỡ"],
+    post: ["Đứng ngoài quy luật", "thời gian"],
   },
-  {
-    label: "Tháng năm rực rỡ",
-    src: "/photos/reunion-03.jfif",
-    className: "",
-  },
-  {
-    label: "Nơi ta bắt đầu",
-    src: "/photos/reunion-01.jfif",
-    className: "",
-  },
-];
+};
 
-export const memoryLines = [
-  "Thanh xuân có hạn kỳ, nhưng tình bạn là những rực rỡ đứng ngoài quy luật thời gian.",
-  "Cùng ôn lại những kỷ niệm xưa và chia sẻ những chặng đường đã qua.",
-  "Một ngày trở về để gọi nhau bằng những cái tên thân quen nhất.",
-];
+// Thời gian mỗi ảnh slide hiển thị (ms)
+export const GALLERY_SLIDE_MS = 3500;
 
 export const OPENING_VIDEO_SRC =
   "/canva-elements/open-envelope-hoai-cam-fast.mp4";
-export const SKIP_OPENING_VIDEO = true;
+export const SKIP_OPENING_VIDEO = false;
 export const PETAL_COUNT = 12;
+// Số chuồn chuồn bay quanh hero — đường bay định nghĩa trong styles.css (.dragonfly:nth-child)
+export const DRAGONFLY_COUNT = 2;

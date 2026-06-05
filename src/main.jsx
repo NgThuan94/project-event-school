@@ -2,9 +2,6 @@ import React, { useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 import HeroSection from "./components/HeroSection.jsx";
-import IntroSection from "./components/IntroSection.jsx";
-import DetailBand from "./components/DetailBand.jsx";
-import MemorySection from "./components/MemorySection.jsx";
 import GallerySection from "./components/GallerySection.jsx";
 import TimelineSection from "./components/TimelineSection.jsx";
 import ClosingSection from "./components/ClosingSection.jsx";
@@ -80,11 +77,6 @@ function App() {
     document
       .querySelectorAll(
         [
-          ".intro-section",
-          ".section-heading",
-          ".detail-band > div",
-          ".memory-section p",
-          ".photo-card",
           ".timeline-section h2",
           ".timeline__item",
           ".closing-section > *",
@@ -108,9 +100,6 @@ function App() {
   return (
     <main className="page">
       <HeroSection />
-      <IntroSection />
-      <DetailBand />
-      <MemorySection />
       <GallerySection />
       <TimelineSection />
       <ClosingSection />

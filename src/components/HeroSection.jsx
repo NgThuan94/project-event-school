@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Clock3 } from "lucide-react";
 import {
   invitation,
+  DRAGONFLY_COUNT,
   OPENING_VIDEO_SRC,
   PETAL_COUNT,
   SKIP_OPENING_VIDEO,
@@ -54,6 +55,8 @@ export default function HeroSection() {
         className="hero__image"
         src="/canva-elements/background-hero.png"
         alt="Nền hero hoa sen hồng từ Canva"
+        decoding="async"
+        fetchPriority="high"
       />
       <div className="hero__veil" />
       <img
@@ -61,6 +64,7 @@ export default function HeroSection() {
         src="/canva-elements/image-banner.png"
         alt=""
         aria-hidden="true"
+        decoding="async"
       />
       <div className="soft-petal soft-petal--one" aria-hidden="true" />
       <div className="soft-petal soft-petal--two" aria-hidden="true" />
@@ -78,6 +82,18 @@ export default function HeroSection() {
           >
             {item}
           </span>
+        ))}
+      </div>
+
+      <div className="dragonfly-layer" aria-hidden="true">
+        {Array.from({ length: DRAGONFLY_COUNT }, (_, index) => (
+          <img
+            key={index}
+            className="dragonfly"
+            src="/canva-elements/chuongchuong.svg"
+            alt=""
+            decoding="async"
+          />
         ))}
       </div>
 
@@ -110,7 +126,8 @@ export default function HeroSection() {
             {invitation.time}&nbsp;|&nbsp;{invitation.date.split(",")[0]}
           </span>
           <span>
-            {invitation.dateMonth}&nbsp;<b>{invitation.dateDay}</b>&nbsp;{invitation.dateYear}
+            {invitation.dateMonth}&nbsp;<b>{invitation.dateDay}</b>&nbsp;
+            {invitation.dateYear}
           </span>
         </div>
         <div className="hero__venue">
@@ -119,10 +136,6 @@ export default function HeroSection() {
           <small>{invitation.address}</small>
         </div>
         <p className="hero__welcome">{invitation.cta}</p>
-      </div>
-
-      <div className="scroll-cue" aria-hidden="true">
-        <span />
       </div>
 
       {!SKIP_OPENING_VIDEO && (
