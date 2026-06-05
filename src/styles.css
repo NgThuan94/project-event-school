@@ -160,6 +160,7 @@ body.is-locked {
   z-index: 0;
   pointer-events: none;
   opacity: 0.88;
+  will-change: transform;
   animation:
     ribbonEnter 700ms ease 80ms both,
     ribbonFloat 5s ease-in-out 0.85s infinite;
@@ -444,6 +445,7 @@ body.is-locked {
   font-size: 0.72rem;
   font-weight: 900;
   white-space: nowrap;
+  will-change: transform, translate;
   transform: translate3d(0, var(--hero-token-shift), 0) rotate(-4deg);
   animation:
     tokenAppear 600ms ease-out both,
@@ -480,6 +482,7 @@ body.is-locked {
     );
   opacity: 0.58;
   filter: blur(0.2px);
+  will-change: transform;
   transform: translate3d(0, -20px, 0) rotate(var(--petal-rotate));
   animation: petalFall var(--petal-duration) linear infinite;
   animation-delay: var(--petal-delay);
@@ -899,10 +902,10 @@ body.is-locked {
 @keyframes tokenFloat {
   0%,
   100% {
-    margin-top: 0;
+    translate: 0 0px;
   }
   50% {
-    margin-top: -7px;
+    translate: 0 -7px;
   }
 }
 
