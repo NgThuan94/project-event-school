@@ -56,7 +56,7 @@ export const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxfzC0_SyG
 
 export const OPENING_VIDEO_SRC =
   "/canva-elements/open-envelope-hoai-cam-fast.mp4";
-export const SKIP_OPENING_VIDEO = true;
+export const SKIP_OPENING_VIDEO = false;
 export const PETAL_COUNT = 12;
 // Số chuồn chuồn bay quanh hero — đường bay định nghĩa trong styles.css (.dragonfly:nth-child)
 export const DRAGONFLY_COUNT = 2;
