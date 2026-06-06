@@ -4,6 +4,7 @@ import "./styles.css";
 import HeroSection from "./components/HeroSection.jsx";
 import GallerySection from "./components/GallerySection.jsx";
 import TimelineSection from "./components/TimelineSection.jsx";
+import RSVPSection from "./components/RSVPSection.jsx";
 import ClosingSection from "./components/ClosingSection.jsx";
 
 function App() {
@@ -77,8 +78,13 @@ function App() {
     document
       .querySelectorAll(
         [
-          ".timeline-section h2",
-          ".timeline__item",
+          ".g-logo",
+          ".g-school",
+          ".g-reunion",
+          ".g-tagline",
+          ".g-book",
+          ".tl-title",
+          ".tl-item",
           ".closing-section > *",
         ].join(", "),
       )
@@ -102,6 +108,7 @@ function App() {
       <HeroSection />
       <GallerySection />
       <TimelineSection />
+      <RSVPSection />
       <ClosingSection />
     </main>
   );

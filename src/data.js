@@ -22,10 +22,10 @@ export const invitation = {
 };
 
 export const schedule = [
-  ["08:00", "Đón tiếp đại biểu, thầy cô và cựu học sinh"],
-  ["08:30", "Tham quan trường, trò chuyện, chụp hình lưu niệm"],
-  ["09:00", "Gặp mặt, giao lưu, ôn lại kỷ niệm"],
-  ["10:30", "Dùng cơm thân mật và tham gia hoạt động của buổi gặp mặt"],
+  { time: "08:00", label: "Đón tiếp", icon: "🌸" },
+  { time: "08:30", label: "Tham quan trường", icon: "📷" },
+  { time: "09:00", label: "Gặp mặt & giao lưu", icon: "🎉" },
+  { time: "10:30", label: "Cơm thân mật", icon: "🍽️" },
 ];
 
 export const gallery = {
@@ -51,9 +51,12 @@ export const gallery = {
 // Thời gian mỗi ảnh slide hiển thị (ms)
 export const GALLERY_SLIDE_MS = 3500;
 
+// Dán URL Google Apps Script Web App vào đây sau khi deploy
+export const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxfzC0_SyGJByZgb0kExo34IUyP6g9t9mJPkyaryaPTmuzfkl13_oUjovVF6IJIfhTv/exec";
+
 export const OPENING_VIDEO_SRC =
   "/canva-elements/open-envelope-hoai-cam-fast.mp4";
-export const SKIP_OPENING_VIDEO = false;
+export const SKIP_OPENING_VIDEO = true;
 export const PETAL_COUNT = 12;
 // Số chuồn chuồn bay quanh hero — đường bay định nghĩa trong styles.css (.dragonfly:nth-child)
 export const DRAGONFLY_COUNT = 2;
