@@ -113,7 +113,7 @@ body.is-locked {
   container-type: inline-size;
   background:
     linear-gradient(rgba(255, 244, 248, 0.72), rgba(255, 248, 242, 0.78)),
-    url("/canva-elements/background-hero.png") center top / cover fixed;
+    url("/canva-elements/background-hero.png") center top / cover no-repeat;
   box-shadow: 0 0 80px rgba(35, 49, 77, 0.16);
 }
 
@@ -176,12 +176,9 @@ body.is-locked {
   object-fit: cover;
   object-position: center center;
   z-index: -4;
-  filter: saturate(1.04) contrast(0.98);
-  /* parallax tách sang `translate` để `transform` (heroDrift) chạy thẳng trên GPU */
-  translate: 0 var(--hero-shift);
   backface-visibility: hidden;
-  will-change: transform, translate;
-  animation: heroDrift 13s ease-in-out infinite alternate;
+  will-change: transform;
+  animation: heroDrift 16s ease-in-out infinite alternate;
 }
 
 .hero__veil {
@@ -207,11 +204,9 @@ body.is-locked {
   height: 180px;
   border-radius: 58% 42% 55% 45%;
   background: rgba(255, 255, 255, 0.16);
-  filter: blur(1px);
   transform: rotate(18deg);
-  translate: 0 var(--hero-petal-shift);
   backface-visibility: hidden;
-  will-change: transform, translate;
+  will-change: transform;
 }
 
 .soft-petal--one {

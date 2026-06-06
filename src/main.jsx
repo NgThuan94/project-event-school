@@ -26,8 +26,6 @@ function App() {
         1,
       );
       const scrollY = window.scrollY;
-      const heroRatio = Math.min(scrollY / viewportHeight, 1);
-
       document.documentElement.style.setProperty(
         "--scroll-progress",
         String(Math.min(scrollY / pageHeight, 1)),
@@ -39,22 +37,6 @@ function App() {
       document.documentElement.style.setProperty(
         "--page-grid-x",
         `${80 * (scrollY / pageHeight)}px`,
-      );
-      document.documentElement.style.setProperty(
-        "--hero-shift",
-        `${heroRatio * 72}px`,
-      );
-      document.documentElement.style.setProperty(
-        "--hero-token-shift",
-        `${heroRatio * 13}px`,
-      );
-      document.documentElement.style.setProperty(
-        "--hero-petal-shift",
-        `${heroRatio * 28}px`,
-      );
-      document.documentElement.style.setProperty(
-        "--hero-petal-field-shift",
-        `${heroRatio * -16}px`,
       );
     };
 
