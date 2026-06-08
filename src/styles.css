@@ -765,9 +765,9 @@ body.is-locked {
 .g-quote {
   position: relative;
   z-index: 2;
-  margin: 100px auto 0;
+  margin: 70px auto 0;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 }
 
 .g-quote__text {
@@ -795,13 +795,13 @@ body.is-locked {
 }
 .g-quote__line {
   font-family: var(--font-script);
-  font-size: clamp(1.5rem, 4.8cqw, 1.4rem);
-  line-height: 1.55;
+  font-size: clamp(1.3rem, 4.8cqw, 1.4rem);
+  line-height: 1.2;
   color: #0d0300;
 }
 .g-quote__big {
   font-family: var(--font-script);
-  font-size: clamp(2rem, 9cqw, 3.5rem);
+  font-size: clamp(1.7rem, 8cqw, 3.5rem);
   line-height: 0.9;
   color: #e0392a;
   text-shadow: 0 4px 14px rgba(224, 57, 42, 0.18);
@@ -810,7 +810,7 @@ body.is-locked {
 /* Per-line nudge + write-on animation khi .g-book vào view */
 .g-quote__text > :nth-child(1) {
   --q-rotate: -6deg;
-  margin-right: 18px;
+  margin-right: 45px;
   --write-delay: 0ms;
 }
 .g-quote__text > :nth-child(2) {
@@ -818,30 +818,32 @@ body.is-locked {
   margin-right: 0px;
   margin-left: 28px;
   --write-delay: 600ms;
+  transform: translateX(24px);
 }
 .g-quote__text > :nth-child(3) {
-  --q-rotate: -6deg;
+  --q-rotate: -10deg;
   margin-right: 22px;
   margin-top: 4px;
   --write-delay: 1200ms;
 }
 .g-quote__text > :nth-child(4) {
-  --q-rotate: -3.5deg;
+  --q-rotate: -9deg;
   margin-right: 0px;
   margin-left: 16px;
   --write-delay: 1750ms;
 }
 .g-quote__text > :nth-child(5) {
-  --q-rotate: -3.5deg;
+  --q-rotate: -9deg;
   margin-right: 12px;
   margin-top: 6px;
   --write-delay: 2250ms;
 }
 .g-quote__text > :nth-child(6) {
-  --q-rotate: -3deg;
+  --q-rotate: -10deg;
   margin-right: 0px;
   margin-left: 32px;
   --write-delay: 2700ms;
+  transform: translateX(14px);
 }
 
 /* ── Trang trí + animation ── */
@@ -867,7 +869,7 @@ body.is-locked {
 }
 .g-deco--hoado {
   right: 20px;
-  bottom: 6px;
+  bottom: -10px;
   width: 118px;
   z-index: 0;
   transform-origin: bottom right;
