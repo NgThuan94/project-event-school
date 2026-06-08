@@ -23,9 +23,9 @@ export const invitation = {
 
 export const schedule = [
   { time: "08:00 - 08:30", label: "Đón tiếp đại biểu" },
-  { time: "08:30 - 09:00", label: "chụp hình lưu niệm" },
+  { time: "08:30 - 09:00", label: "Chụp hình lưu niệm" },
   { time: "09:00 - 10:00", label: "Gặp mặt, ôn lại kỷ niệm" },
-  { time: "10:30", label: "tham gia các hoạt động" },
+  { time: "10:30", label: "Tham gia các hoạt động" },
 ];
 
 export const gallery = {
