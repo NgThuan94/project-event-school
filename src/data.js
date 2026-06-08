@@ -55,8 +55,7 @@ export const GALLERY_SLIDE_MS = 3500;
 export const RSVP_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbxfzC0_SyGJByZgb0kExo34IUyP6g9t9mJPkyaryaPTmuzfkl13_oUjovVF6IJIfhTv/exec";
 
-export const OPENING_VIDEO_SRC =
-  "/canva-elements/K%E1%BB%B6%20NI%E1%BB%86M%2030%20N%C4%82M%20V%E1%BB%80%20TR%C6%AF%E1%BB%9CNG%20(1).mp4";
+export const OPENING_VIDEO_SRC = "/canva-elements/sdsd.mp4";
 export const SKIP_OPENING_VIDEO = false;
 export const PETAL_COUNT = 12;
 // Số chuồn chuồn bay quanh hero — đường bay định nghĩa trong styles.css (.dragonfly:nth-child)
