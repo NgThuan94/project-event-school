@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Forest";
+  src: url("/fonts/Forest-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-ink: #23314d;
   --color-muted: #66708d;
@@ -28,6 +36,7 @@
 /* ── Font families – in :root to preserve quoted strings ── */
 :root {
   --font-body: "Noto Serif Display", "DejaVu Serif", Georgia, serif;
+  --font-forest: "Forest", serif;
   --font-script:
     "BHN Desire", "Birthstone Bounce", "Luxurious Script", "Brush Script MT",
     cursive;
@@ -297,6 +306,7 @@ body.is-locked {
   text-transform: none;
   text-shadow: 0 8px 18px rgba(165, 71, 38, 0.12);
   margin-bottom: 20px;
+  margin-top: 130px;
 }
 
 .hero__headline {
@@ -322,7 +332,7 @@ body.is-locked {
   margin: 0;
   max-width: 20.6rem;
   color: #111319;
-  font-size: clamp(0.8rem, 3.1cqw, 1rem);
+  font-size: clamp(0.6rem, 3.1cqw, 1rem);
   font-weight: 650;
   line-height: 1.62;
   font-family: var(--font-display);
@@ -354,6 +364,7 @@ body.is-locked {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-forest);
   text-align: center;
   gap: 8px;
   min-height: 40px;
@@ -381,7 +392,7 @@ body.is-locked {
 .hero__venue > p {
   margin: 0 0 5px;
   color: var(--color-brown);
-  font-family: var(--font-display);
+  font-family: var(--font-forest);
   font-size: 1.25rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -392,7 +403,7 @@ body.is-locked {
 .hero__venue > strong {
   display: block;
   color: var(--color-ink);
-  font-family: var(--font-display);
+  font-family: var(--font-forest);
   font-size: clamp(1rem, 3cqw, 1rem);
   font-weight: 700;
   line-height: 1.25;
@@ -678,16 +689,16 @@ body.is-locked {
 }
 .g-school {
   margin: 0;
-  font-family: var(--font-body);
-  font-size: clamp(0.92rem, 2.7cqw, 1.2rem);
+  font-family: var(--font-forest);
+  font-size: clamp(0.9rem, 2.7cqw, 1.2rem);
   font-weight: 700;
   letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 .g-reunion {
   margin: 3px 0 0;
-  font-family: var(--font-body);
-  font-size: clamp(0.76rem, 3cqw, 0.92rem);
+  font-family: var(--font-forest);
+  font-size: clamp(0.9rem, 3cqw, 0.92rem);
   font-weight: 700;
   letter-spacing: 0.01em;
   text-transform: uppercase;
@@ -864,12 +875,32 @@ body.is-locked {
 }
 
 @keyframes tlWiggle {
-  0%, 70%, 100% { rotate: 0deg; translate: 0 0; }
-  74%  { rotate: -1.8deg; translate: -2px 0; }
-  78%  { rotate:  1.5deg; translate:  2px 0; }
-  82%  { rotate: -1deg;   translate: -1px 0; }
-  86%  { rotate:  0.6deg; translate:  1px 0; }
-  90%  { rotate: 0deg;    translate: 0 0; }
+  0%,
+  70%,
+  100% {
+    rotate: 0deg;
+    translate: 0 0;
+  }
+  74% {
+    rotate: -1.8deg;
+    translate: -2px 0;
+  }
+  78% {
+    rotate: 1.5deg;
+    translate: 2px 0;
+  }
+  82% {
+    rotate: -1deg;
+    translate: -1px 0;
+  }
+  86% {
+    rotate: 0.6deg;
+    translate: 1px 0;
+  }
+  90% {
+    rotate: 0deg;
+    translate: 0 0;
+  }
 }
 
 @keyframes writeOn {
@@ -936,9 +967,14 @@ body.is-locked {
   letter-spacing: 0.02em;
   opacity: 0;
   translate: 0 20px;
-  transition: opacity 700ms var(--ease-elegant), translate 700ms var(--ease-elegant);
+  transition:
+    opacity 700ms var(--ease-elegant),
+    translate 700ms var(--ease-elegant);
 }
-.tl-title.is-visible { opacity: 1; translate: 0 0; }
+.tl-title.is-visible {
+  opacity: 1;
+  translate: 0 0;
+}
 
 .tl-scene {
   position: relative;
@@ -987,11 +1023,19 @@ body.is-locked {
 }
 
 /* slide in */
-.tl-item--left  { translate: calc(-100% - 16px) -50%; }
-.tl-item--right { translate: 16px -50%; }
+.tl-item--left {
+  translate: calc(-100% - 16px) -50%;
+}
+.tl-item--right {
+  translate: 16px -50%;
+}
 
-.tl-item.is-visible.tl-item--left  { translate: -100% -50%; }
-.tl-item.is-visible.tl-item--right { translate: 0%    -50%; }
+.tl-item.is-visible.tl-item--left {
+  translate: -100% -50%;
+}
+.tl-item.is-visible.tl-item--right {
+  translate: 0% -50%;
+}
 
 /* lắc lư lâu lâu sau khi xuất hiện */
 .tl-item.is-visible .tl-card {
@@ -1030,10 +1074,19 @@ body.is-locked {
   width: 120px;
 }
 
-.tl-item--left  .tl-card { align-items: flex-end; text-align: right; }
-.tl-item--right .tl-card { align-items: flex-start; text-align: left; }
+.tl-item--left .tl-card {
+  align-items: flex-end;
+  text-align: right;
+}
+.tl-item--right .tl-card {
+  align-items: flex-start;
+  text-align: left;
+}
 
-.tl-icon { font-size: 1.5rem; line-height: 1; }
+.tl-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
 
 .tl-time {
   font-family: var(--font-ui);
@@ -1108,7 +1161,9 @@ body.is-locked {
   font-size: 0.96rem;
   color: var(--color-ink);
   outline: none;
-  transition: border-color 200ms ease, box-shadow 200ms ease;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
   box-sizing: border-box;
 }
 
@@ -1143,7 +1198,10 @@ body.is-locked {
   font-size: 0.96rem;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    opacity 180ms ease;
   box-shadow: 0 8px 24px rgba(216, 105, 150, 0.35);
 }
 
@@ -1218,7 +1276,12 @@ body.is-locked {
 .closing-divider__line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(216,105,150,0.4), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(216, 105, 150, 0.4),
+    transparent
+  );
 }
 .closing-divider__icon {
   font-size: 1.2rem;
@@ -1276,7 +1339,9 @@ body.is-locked {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(29, 36, 66, 0.13);
 }
-.closing-btn--phone:active { transform: translateY(1px); }
+.closing-btn--phone:active {
+  transform: translateY(1px);
+}
 
 .closing-btn--map {
   background: linear-gradient(135deg, var(--color-pink-deep), #c0527a);
@@ -1288,7 +1353,9 @@ body.is-locked {
   transform: translateY(-2px);
   box-shadow: 0 14px 32px rgba(216, 105, 150, 0.48);
 }
-.closing-btn--map:active { transform: translateY(1px); }
+.closing-btn--map:active {
+  transform: translateY(1px);
+}
 
 .closing-footer {
   margin: 24px 0 0;
@@ -1314,7 +1381,6 @@ body.is-locked {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
 }
-
 
 /* ── Keyframes ── */
 @keyframes heroDrift {
@@ -1494,5 +1560,8 @@ body.is-locked {
   }
   .hero {
     min-height: calc(100svh - 40px);
+  }
+  .hero .eyebrow {
+    margin-top: 70px;
   }
 }
