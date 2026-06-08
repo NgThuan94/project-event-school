@@ -3,7 +3,7 @@ export const invitation = {
   eyebrow: "Giấy Mời",
   intro:
     "Nhân dịp kỷ niệm 30 năm ngày ra trường, Ban Liên lạc cựu học sinh niên khóa 1993 - 1996 xin trân trọng kính mời",
-  recipient: "Các Bạn",
+  recipient: "Thầy/ Cô",
   intro2:
     "cùng gia đình về tham dự buổi họp mặt thân mật với Khóa, để cùng ôn lại những kỷ niệm xưa và chia sẻ những chặng đường đã qua",
   dateDay: "11",
