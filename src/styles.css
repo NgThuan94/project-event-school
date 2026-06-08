@@ -1020,7 +1020,9 @@ body.is-locked {
   left: 0;
   width: 100%;
   min-height: 80px;
-  transform: translateY(-50%);
+  /* Center on --tl-y via margin (= -½ min-height). KHÔNG dùng transform:
+     reveal-system rule `.motion-ready .is-visible` ghi đè transform → mất căn giữa */
+  margin-top: -40px;
   opacity: 0;
   transition: opacity 600ms var(--ease-elegant);
   transition-delay: var(--tl-delay, 0ms);
@@ -1159,19 +1161,6 @@ body.is-locked {
   100% {
     transform: translateY(-10px) rotate(4deg);
   }
-}
-
-/* Background trường học */
-.tl-school-bg {
-  position: relative;
-  width: 100%;
-  margin-top: 16px;
-  overflow: hidden;
-}
-.tl-school-bg img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
 }
 
 /* ── RSVP Section ── */

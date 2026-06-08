@@ -11,10 +11,10 @@ const ILLUSTRATIONS = [
 const VB_W = 200;
 const VB_H = 560;
 const ITEMS = [
-  { side: "right", topPct: 14 },
-  { side: "left",  topPct: 34 },
+  { side: "right", topPct: 10 },
+  { side: "left", topPct: 34 },
   { side: "right", topPct: 57 },
-  { side: "left",  topPct: 78 },
+  { side: "left", topPct: 78 },
 ];
 
 const PATH_D =
@@ -41,18 +41,25 @@ export default function TimelineSection() {
       const r = scene.getBoundingClientRect();
       return ITEMS.map((cfg) => {
         const yVB = (cfg.topPct / 100) * VB_H;
-        let lo = 0, hi = len;
+        let lo = 0,
+          hi = len;
         for (let k = 0; k < 48; k++) {
           const mid = (lo + hi) / 2;
-          if (path.getPointAtLength(mid).y < yVB) lo = mid; else hi = mid;
+          if (path.getPointAtLength(mid).y < yVB) lo = mid;
+          else hi = mid;
         }
         const p = path.getPointAtLength((lo + hi) / 2);
         let leftPct = (p.x / VB_W) * 100;
+        let topPct = (p.y / VB_H) * 100;
         if (ctm && r.width) {
           const sx = ctm.a * p.x + ctm.c * p.y + ctm.e; // viewBox → screen px
           leftPct = ((sx - r.left) / r.width) * 100;
         }
-        return { cx: p.x, cy: p.y, leftPct };
+        if (ctm && r.height) {
+          const sy = ctm.b * p.x + ctm.d * p.y + ctm.f; // viewBox → screen py
+          topPct = ((sy - r.top) / r.height) * 100;
+        }
+        return { cx: p.x, cy: p.y, leftPct, topPct };
       });
     };
 
@@ -73,7 +80,7 @@ export default function TimelineSection() {
           observer.disconnect();
         }
       },
-      { threshold: 0.05 }
+      { threshold: 0.05 },
     );
     observer.observe(sectionRef.current);
 
@@ -85,11 +92,26 @@ export default function TimelineSection() {
 
   return (
     <section className="timeline-section" ref={sectionRef}>
-      <img className="tl-bg" src="/canva-elements/time-line/nen-hoa-sen.png" alt="" aria-hidden="true" />
+      <img
+        className="tl-bg"
+        src="/canva-elements/time-line/nen-hoa-sen.png"
+        alt=""
+        aria-hidden="true"
+      />
 
       {/* Chuồn chuồn decoration */}
-      <img className="tl-dragonfly tl-dragonfly--1" src="/canva-elements/time-line/el-5.svg" alt="" aria-hidden="true" />
-      <img className="tl-dragonfly tl-dragonfly--2" src="/canva-elements/chuongchuong.svg" alt="" aria-hidden="true" />
+      <img
+        className="tl-dragonfly tl-dragonfly--1"
+        src="/canva-elements/time-line/el-5.svg"
+        alt=""
+        aria-hidden="true"
+      />
+      <img
+        className="tl-dragonfly tl-dragonfly--2"
+        src="/canva-elements/chuongchuong.svg"
+        alt=""
+        aria-hidden="true"
+      />
 
       <h2 className="tl-title">Timeline</h2>
 
@@ -124,7 +146,7 @@ export default function TimelineSection() {
               key={i}
               className={`tl-item tl-item--${cfg.side}`}
               style={{
-                "--tl-y": `${cfg.topPct}%`,
+                "--tl-y": dots[i] ? `${dots[i].topPct.toFixed(2)}%` : `${cfg.topPct}%`,
                 "--tl-delay": `${i * 180}ms`,
                 "--tl-dot-left": leftPct,
               }}
@@ -142,10 +164,6 @@ export default function TimelineSection() {
             </div>
           );
         })}
-      </div>
-
-      <div className="tl-school-bg">
-        <img src="/canva-elements/time-line/nen-school.png" alt="" aria-hidden="true" />
       </div>
     </section>
   );
