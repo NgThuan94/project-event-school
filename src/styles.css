@@ -952,18 +952,33 @@ body.is-locked {
 /* ── Timeline ── */
 .timeline-section {
   position: relative;
-  padding: 0 0 60px;
+  padding: 0 0 0;
   overflow: hidden;
 }
 
+/* Background hoa sen mờ phủ toàn section */
+.tl-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .tl-title {
+  position: relative;
+  z-index: 1;
   text-align: center;
   font-family: var(--font-script);
-  font-size: clamp(2.6rem, 12cqw, 3.4rem);
+  font-size: clamp(2.8rem, 13cqw, 3.6rem);
   font-weight: 400;
-  color: var(--color-ink);
+  color: var(--color-brown);
   margin: 0;
-  padding-top: 32px;
+  padding-top: 36px;
   letter-spacing: 0.02em;
   opacity: 0;
   translate: 0 20px;
@@ -978,9 +993,10 @@ body.is-locked {
 
 .tl-scene {
   position: relative;
+  z-index: 1;
   width: 100%;
-  height: 620px;
-  margin: 4px auto 0;
+  height: 680px;
+  margin: 8px auto 0;
 }
 
 .tl-path-svg {
@@ -992,117 +1008,170 @@ body.is-locked {
 }
 
 .tl-path {
-  stroke: var(--color-pink-deep);
+  stroke: #8b6f47;
   stroke-width: 2px;
-  opacity: 0.45;
+  opacity: 0.55;
 }
 
-/* Mỗi item: card—arm—dot, dot luôn sát đường (left 50%) */
+/* Container item: full width, min-height đủ cho card text dài */
 .tl-item {
   position: absolute;
   top: var(--tl-y);
-  left: 50%;
-  display: flex;
-  flex-direction: row; /* card — arm — dot */
-  align-items: center;
+  left: 0;
+  width: 100%;
+  min-height: 80px;
+  transform: translateY(-50%);
   opacity: 0;
-  transition:
-    opacity 600ms var(--ease-elegant),
-    translate 600ms var(--ease-elegant);
+  transition: opacity 600ms var(--ease-elegant);
   transition-delay: var(--tl-delay, 0ms);
 }
 
-/* left: toàn bộ item dịch trái, dot tiếp xúc đường */
-.tl-item--left {
-  translate: calc(-100%) -50%;
-}
-/* right: lật ngang card sang phải, dot vẫn sát đường */
-.tl-item--right {
-  flex-direction: row-reverse; /* dot — arm — card */
-  translate: 0% -50%;
+.tl-item.is-visible {
+  opacity: 1;
 }
 
-/* slide in */
-.tl-item--left {
-  translate: calc(-100% - 16px) -50%;
+/* Dot = SVG <circle> vẽ thẳng trên path → luôn đúng đường line */
+.tl-dot-ring {
+  fill: rgba(139, 111, 71, 0.28);
 }
-.tl-item--right {
-  translate: 16px -50%;
+.tl-dot-core {
+  fill: #3a2a1a;
 }
-
-.tl-item.is-visible.tl-item--left {
-  translate: -100% -50%;
+/* pop-in khi cuộn tới */
+.tl-dot-g {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0.2);
 }
-.tl-item.is-visible.tl-item--right {
-  translate: 0% -50%;
+.tl-dot-g.is-in {
+  animation: tlDotPop 520ms var(--ease-elegant) both;
+  animation-delay: var(--d, 0ms);
 }
-
-/* lắc lư lâu lâu sau khi xuất hiện */
-.tl-item.is-visible .tl-card {
-  animation: tlWiggle 3.5s ease-in-out var(--tl-delay, 0ms) infinite;
-  animation-delay: calc(var(--tl-delay, 0ms) + 1400ms);
-}
-
-.tl-dot {
-  flex-shrink: 0;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: #fff;
-  border: 2.5px solid var(--color-pink-deep);
-  box-shadow: 0 0 0 4px rgba(216, 105, 150, 0.2);
-  z-index: 2;
+@keyframes tlDotPop {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.tl-arm {
-  flex-shrink: 0;
-  width: 24px;
-  height: 1.5px;
-  background: rgba(216, 105, 150, 0.45);
-}
-
+/* Card: absolute, cách đường line 20px */
 .tl-card {
+  position: absolute;
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  border-radius: 14px;
-  padding: 10px 13px;
-  box-shadow: 0 6px 20px rgba(29, 36, 66, 0.09);
-  width: 120px;
+  gap: 4px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.tl-item--left .tl-card {
-  align-items: flex-end;
-  text-align: right;
-}
-.tl-item--right .tl-card {
+/* Card bên PHẢI dot */
+.tl-card--right {
+  left: calc(var(--tl-dot-left, 50%) + 50px);
+  right: 8px;
   align-items: flex-start;
   text-align: left;
 }
+/* Card bên TRÁI dot */
+.tl-card--left {
+  left: 8px;
+  right: calc(100% - var(--tl-dot-left, 50%) + 50px);
+  align-items: flex-end;
+  text-align: right;
+}
 
-.tl-icon {
-  font-size: 1.5rem;
-  line-height: 1;
+/* Illustration: canh giữa NỬA NGOÀI (giữa mép và đường line) */
+.tl-illus {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* illus bên TRÁI (card bên phải) — giữa khoảng [mép trái → dot] */
+.tl-illus--left {
+  left: calc(var(--tl-dot-left, 50%) / 2 - 36px);
+  right: auto;
+}
+/* illus bên PHẢI (card bên trái) — giữa khoảng [dot → mép phải] */
+.tl-illus--right {
+  left: calc((var(--tl-dot-left, 50%) + 100%) / 2 - 36px);
+  right: auto;
+}
+
+/* lắc lư nhẹ sau khi xuất hiện */
+.tl-item.is-visible .tl-card {
+  animation: tlWiggle 4s ease-in-out infinite;
+  animation-delay: calc(var(--tl-delay, 0ms) + 1600ms);
 }
 
 .tl-time {
   font-family: var(--font-ui);
-  font-size: 0.73rem;
-  font-weight: 800;
-  color: var(--color-pink-deep);
-  letter-spacing: 0.04em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #5a4020;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
 }
 
 .tl-label {
   margin: 0;
   font-family: var(--font-body);
   font-size: 0.82rem;
-  font-weight: 600;
   color: var(--color-ink);
-  line-height: 1.3;
+  line-height: 1.35;
+}
+
+/* Chuồn chuồn decoration */
+.tl-dragonfly {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.85;
+  animation: tlDragonflyFloat 5s ease-in-out infinite alternate;
+}
+.tl-dragonfly--1 {
+  top: 4%;
+  left: 8%;
+  width: 48px;
+  animation-duration: 5.5s;
+  transform: scaleX(-1);
+}
+.tl-dragonfly--2 {
+  top: 52%;
+  right: 6%;
+  width: 42px;
+  animation-duration: 4.8s;
+  animation-delay: 1.2s;
+}
+
+@keyframes tlDragonflyFloat {
+  0% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  100% {
+    transform: translateY(-10px) rotate(4deg);
+  }
+}
+
+/* Background trường học */
+.tl-school-bg {
+  position: relative;
+  width: 100%;
+  margin-top: 16px;
+  overflow: hidden;
+}
+.tl-school-bg img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 /* ── RSVP Section ── */

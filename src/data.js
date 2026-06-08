@@ -22,10 +22,10 @@ export const invitation = {
 };
 
 export const schedule = [
-  { time: "08:00", label: "Đón tiếp", icon: "🌸" },
-  { time: "08:30", label: "Tham quan trường", icon: "📷" },
-  { time: "09:00", label: "Gặp mặt & giao lưu", icon: "🎉" },
-  { time: "10:30", label: "Cơm thân mật", icon: "🍽️" },
+  { time: "08:00 - 08:30", label: "Đón tiếp đại biểu" },
+  { time: "08:30 - 09:00", label: "chụp hình lưu niệm" },
+  { time: "09:00 - 10:00", label: "Gặp mặt, ôn lại kỷ niệm" },
+  { time: "10:30", label: "tham gia các hoạt động" },
 ];
 
 export const gallery = {
@@ -52,7 +52,8 @@ export const gallery = {
 export const GALLERY_SLIDE_MS = 3500;
 
 // Dán URL Google Apps Script Web App vào đây sau khi deploy
-export const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxfzC0_SyGJByZgb0kExo34IUyP6g9t9mJPkyaryaPTmuzfkl13_oUjovVF6IJIfhTv/exec";
+export const RSVP_ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbxfzC0_SyGJByZgb0kExo34IUyP6g9t9mJPkyaryaPTmuzfkl13_oUjovVF6IJIfhTv/exec";
 
 export const OPENING_VIDEO_SRC =
   "/canva-elements/K%E1%BB%B6%20NI%E1%BB%86M%2030%20N%C4%82M%20V%E1%BB%80%20TR%C6%AF%E1%BB%9CNG%20(1).mp4";
