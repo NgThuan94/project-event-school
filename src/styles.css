@@ -416,7 +416,7 @@ body.is-locked {
   margin-top: 4px;
   color: var(--color-ink);
   font-family: var(--font-forest);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   text-shadow: 0 1px 6px rgba(255, 252, 248, 0.9);
 }
