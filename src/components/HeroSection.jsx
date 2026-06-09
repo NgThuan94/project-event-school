@@ -136,6 +136,13 @@ export default function HeroSection() {
           <small>{invitation.address}</small>
         </div>
         <p className="hero__welcome">{invitation.cta}</p>
+        <div className="hero__contact">
+          <p className="hero__contact-label">Ban Liên Lạc</p>
+          <p className="hero__contact-name">{invitation.contactName}</p>
+          <a className="hero__contact-phone" href={invitation.phoneHref}>
+            {invitation.contactPhone}
+          </a>
+        </div>
       </div>
 
       {!SKIP_OPENING_VIDEO && (

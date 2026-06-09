@@ -345,7 +345,7 @@ body.is-locked {
   margin: 18px 0px 0px;
   max-width: 20rem;
   color: #6d6422;
-  font-size: clamp(2.55rem, 7cqw, 2.7rem);
+  font-size: clamp(2.2rem, 7cqw, 2.7rem);
   font-weight: 500;
   line-height: 0.92;
   font-family: var(--font-script);
@@ -356,7 +356,7 @@ body.is-locked {
 .hero__facts {
   display: grid;
   gap: 6px;
-  margin-top: 18px;
+  margin-top: 10px;
   width: min(100%, 350px);
 }
 
@@ -367,7 +367,7 @@ body.is-locked {
   font-family: var(--font-forest);
   text-align: center;
   gap: 8px;
-  min-height: 40px;
+  min-height: 35px;
   color: var(--color-ink);
   font-size: 1.2rem;
   font-weight: 800;
@@ -422,12 +422,56 @@ body.is-locked {
 }
 
 .hero__welcome {
-  margin: 30px 0 0;
+  margin: 15px 0 0;
   color: #a54726;
   font-family: var(--font-script);
   font-size: clamp(0.8rem, 7cqw, 1.8rem);
   line-height: 0.98;
   text-shadow: 0 8px 18px rgba(165, 71, 38, 0.12);
+}
+
+/* Thông tin liên lạc — góc phải dưới hero (viền trắng quanh chữ cho rõ, không nền) */
+.hero__contact {
+  justify-self: end;
+  margin-top: 20px;
+  text-align: center;
+  /* viền trắng outline 8 hướng + glow nhẹ */
+  --white-outline:
+    -1.4px -1.4px 0 #fff, 1.4px -1.4px 0 #fff, -1.4px 1.4px 0 #fff,
+    1.4px 1.4px 0 #fff, 0 -1.4px 0 #fff, 0 1.4px 0 #fff, -1.4px 0 0 #fff,
+    1.4px 0 0 #fff, 0 0 4px rgba(255, 255, 255, 0.9);
+}
+
+.hero__contact-label {
+  margin: 0;
+  color: var(--color-brown);
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-shadow: var(--white-outline);
+}
+
+.hero__contact-name {
+  margin: 2px 0 0;
+  color: var(--color-ink);
+  font-family: var(--font-forest);
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-shadow: var(--white-outline);
+}
+
+.hero__contact-phone {
+  display: inline-block;
+  margin-top: 1px;
+  color: var(--color-pink-deep);
+  font-family: var(--font-ui);
+  font-size: 0.98rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  text-shadow: var(--white-outline);
 }
 
 /* ── Float tokens + Petal field ── */

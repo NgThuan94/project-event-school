@@ -5,7 +5,7 @@ export const invitation = {
     "Nhân dịp kỷ niệm 30 năm ngày ra trường, Ban Liên lạc cựu học sinh niên khóa 1993 - 1996 xin trân trọng kính mời",
   recipient: "Thầy/ Cô",
   intro2:
-    "cùng gia đình về tham dự buổi họp mặt thân mật với Khóa, để cùng ôn lại những kỷ niệm xưa và chia sẻ những chặng đường đã qua",
+    "Về tham dự buổi họp mặt thân mật với Khóa, để cùng ôn lại những kỷ niệm xưa và chia sẻ những chặng đường đã qua",
   dateDay: "11",
   dateMonth: "Tháng 7",
   dateYear: "2026",
